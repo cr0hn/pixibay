@@ -3,12 +3,8 @@ name: "security workflow"
 on:
   workflow_dispatch:
 
-permissions:
-  contents: read
-
 jobs:
   run_42c_audit:
-    environment: 42Crunch
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
