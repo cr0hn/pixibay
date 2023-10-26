@@ -19,5 +19,4 @@ jobs:
       - name: 42crunch-static-api-testing
         uses: 42crunch/api-security-audit-action-freemium@main
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          openapi-file: "openapi.json"
+          openapi_file: "openapi.json"
