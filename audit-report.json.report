@@ -51,8 +51,7 @@
                         {
                             "physicalLocation": {
                                 "artifactLocation": {
-                                    "uri": "file:///github/workspace/openapi.json",
-                                    "index": 0
+                                    "uri": "file:///openapi.json"
                                 },
                                 "region": {
                                     "startLine": 1171,
@@ -74,8 +73,7 @@
                         {
                             "physicalLocation": {
                                 "artifactLocation": {
-                                    "uri": "file:///github/workspace/openapi.json",
-                                    "index": 0
+                                    "uri": "file:///openapi.json"
                                 },
                                 "region": {
                                     "startLine": 1171,
