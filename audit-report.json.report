@@ -43,7 +43,7 @@
             "results": [
                 {
                     "level": "note",
-                    "ruleId": "v3-global-securityscheme-apikey-inheader-examples-pixi-json",
+                    "ruleId": "v3-global-securityscheme-apikey-inheader",
                     "message": {
                         "text": "# Transporting API keys in a header over network allowed\n\n"
                     },
@@ -51,7 +51,8 @@
                         {
                             "physicalLocation": {
                                 "artifactLocation": {
-                                    "uri": "examples/pixi.json"
+                                    "uri": "openapi.json",
+                                    "index": 1
                                 },
                                 "region": {
                                     "startLine": 1171,
@@ -65,7 +66,7 @@
                 },
                 {
                     "level": "warning",
-                    "ruleId": "v3-operation-securityrequirement-apikey-inheader-examples-pixi-json",
+                    "ruleId": "v3-operation-securityrequirement-apikey-inheader",
                     "message": {
                         "text": "# Operation accepts API keys transported in a header over network\n\n"
                     },
@@ -73,7 +74,8 @@
                         {
                             "physicalLocation": {
                                 "artifactLocation": {
-                                    "uri": "examples/pixi.json"
+                                    "uri": "openapi.json",
+                                    "index": 1
                                 },
                                 "region": {
                                     "startLine": 1171,
