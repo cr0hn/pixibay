@@ -16,7 +16,7 @@
                             },
                             "helpUri": "https://docs.42crunch.com/latest/content/oasv3/datavalidation/schema/v3-global-securityscheme-apikey-inheader.htm",
                             "help": {
-                                "text": "One or more global security schemes in your API allows transporting API keys\nin a header over the network. The credentials are sent over the network on\neach API call, over and over again, and are exposed to attack attempts to\nretrieve them.\n\n"
+                                "text": "One or more global security schemes in your API allows transporting API keys in a header over the network. The credentials are sent over the network on each API call, over and over again, and are exposed to attack attempts to retrieve them.  "
                             },
                             "properties": {
                                 "category": "Other",
@@ -30,7 +30,7 @@
                             },
                             "helpUri": "https://docs.42crunch.com/latest/content/oasv3/datavalidation/schema/v3-operation-securityrequirement-apikey-inheader.htm",
                             "help": {
-                                "text": "The API operation accepts API keys transported in a header over the network\ninstead of the more secure tokens. The credentials are sent over the network\non each API call, over and over again, and are exposed to attack attempts to\nretrieve them.\n\n"
+                                "text": "The API operation accepts API keys transported in a header over the network instead of the more secure tokens. The credentials are sent over the network on each API call, over and over again, and are exposed to attack attempts to retrieve them.  "
                             },
                             "properties": {
                                 "category": "Other",
