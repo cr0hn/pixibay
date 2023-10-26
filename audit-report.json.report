@@ -10,170 +10,37 @@
                     "informationUri": "https://42crunch.com/",
                     "rules": [
                         {
-                            "id": "f421deda-2ccc-570b-9d76-4da90af4862a",
-                            "name": "v3 global http clear",
-                            "helpUri": "https://docs.42crunch.com/latest/content/oasv3/datavalidation/schema/v3-global-http-clear.htm",
+                            "id": "v3 global securityscheme apikey inheader",
                             "shortDescription": {
-                                "text": "API accepts HTTP requests in the clear"
+                                "text": "Transporting API keys in a header over network allowed"
                             },
+                            "helpUri": "https://docs.42crunch.com/latest/content/oasv3/datavalidation/schema/v3-global-securityscheme-apikey-inheader.htm",
                             "help": {
-                                "text": "Description\n-----------\n\nA string schema does not define any pattern for the accepted strings. This means that it does not limit the values that get passed to the API.\n\nFor more details, see the [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#schemaObject).\n\nExample\n-------\n\nThe following is an example of how this type of risk could look in your API definition. Because no pattern is defined, the API accepts a string of any size and value:\n\n    {\n        \"post\": {\n            \"description\": \"Creates a new pet in the store\",\n            \"operationId\": \"addPet\",\n            \"requestBody\": {\n                \"description\": \"Pet to add to the store\",\n                \"required\": true,\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"$ref\": \"#/components/schemas/NewPet\"\n                        }\n                    }\n                }\n            }\n        },\n        // ...\n        \"NewPet\": {\n            \"type\": \"object\",\n            \"description\": \"JSON defining a Pet object\",\n            \"additionalProperties\": false,\n            \"required\": [\n                \"name\"\n            ],\n            \"properties\": {\n                \"name\": {\n                    \"type\": \"string\"\n                }       \n            }\n        }\n    }\n\nPossible exploit scenario\n-------------------------\n\nIf you do not define a pattern for strings, any string is accepted as the input. This could open your backend server to various attacks, such as SQL injection.\n\nRemediation\n-----------\n\nSet a well-defined regular expression that matches your requirements in the `pattern` field of string parameters. This ensures that only strings matching the set pattern get passed to your API.\n\nFor example, the API below only accepts UUIDs that are compliant with [RFC 4122](https://www.ietf.org/rfc/rfc4122.txt):\n\n    {\n        \"post\": {\n            \"description\": \"Creates a new pet in the store\",\n            \"operationId\": \"addPet\",\n            \"requestBody\": {\n                \"description\": \"Pet to add to the store\",\n                \"required\": true,\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"$ref\": \"#/components/schemas/NewPet\"\n                        }\n                    }\n                }\n            }\n        },\n        // ...\n        \"NewPet\": {\n            \"type\": \"object\",\n            \"description\": \"JSON defining a Pet object\",\n            \"additionalProperties\": false,\n            \"required\": [\n                \"name\"\n            ],\n            \"properties\": {\n                \"name\": {\n                    \"type\": \"string\",\n                    \"maxLength\": 10,\n                    \"pattern\": \"^[A-Za-z0-9]{3,10}$\"\n                }       \n            }\n        }\n    }\n\nWe recommend that you carefully think what kind of regular expression best matches your needs. Do not simply blindly copy the pattern from the code example.\n\nRemember to include the anchors `^` and `$` in your regular expression, otherwise the overall length of the pattern could be considered infinite. If you include the anchors in the regular expression _and_ the pattern _only_ has fixed or constant quantifiers (like `{10,64}`, for example), you do not have to define the property `maxLength` separately for the object, as the length is fully constrained by the pattern. However, if the regular expression does not include the anchors _or_ its quantifiers are not fixed (like in `^a.*b$`), it can be considered to be just a part of a longer string and the property `maxLength` is required to constrain the length.\n\nFor more information on regular expressions, see the following:\n\n*   Language-agnostic information on regular expressions at [Base Definitions page on regular expressions](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap09.html)\n*   [OWASP Validation Regex Repository](https://owasp.org/www-community/OWASP_Validation_Regex_Repository)\n*   [RegExr](https://regexr.com/), an online tool for building and testing regular expressions\n\nFor examples on some of the common regulars expressions, see the [full article](https://docs.42crunch.com/latest/content/oasv3/datavalidation/schema/v3-schema-request-string-pattern.htm)."
+                                "text": "Description"
                             },
                             "properties": {
-                                "tags": [
-                                    "security"
-                                ],
-                                "criticality": "Warning"
+                                "category": "Other",
+                                "security-severity": "2"
                             }
                         },
                         {
-                            "id": "c1ecc9ac-0950-5e9d-a3c1-3d6000575444",
-                            "name": "v3 global security",
-                            "helpUri": "https://docs.42crunch.com/latest/content/oasv3/datavalidation/schema/v3-global-security.htm",
+                            "id": "v3 operation securityrequirement apikey inheader",
                             "shortDescription": {
-                                "text": "Global security field is not defined"
+                                "text": "Operation accepts API keys transported in a header over network"
                             },
+                            "helpUri": "https://docs.42crunch.com/latest/content/oasv3/datavalidation/schema/v3-operation-securityrequirement-apikey-inheader.htm",
                             "help": {
-                                "text": "Description\n-----------\n\nA string schema does not define any pattern for the accepted strings. This means that it does not limit the values that get passed to the API.\n\nFor more details, see the [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#schemaObject).\n\nExample\n-------\n\nThe following is an example of how this type of risk could look in your API definition. Because no pattern is defined, the API accepts a string of any size and value:\n\n    {\n        \"post\": {\n            \"description\": \"Creates a new pet in the store\",\n            \"operationId\": \"addPet\",\n            \"requestBody\": {\n                \"description\": \"Pet to add to the store\",\n                \"required\": true,\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"$ref\": \"#/components/schemas/NewPet\"\n                        }\n                    }\n                }\n            }\n        },\n        // ...\n        \"NewPet\": {\n            \"type\": \"object\",\n            \"description\": \"JSON defining a Pet object\",\n            \"additionalProperties\": false,\n            \"required\": [\n                \"name\"\n            ],\n            \"properties\": {\n                \"name\": {\n                    \"type\": \"string\"\n                }       \n            }\n        }\n    }\n\nPossible exploit scenario\n-------------------------\n\nIf you do not define a pattern for strings, any string is accepted as the input. This could open your backend server to various attacks, such as SQL injection.\n\nRemediation\n-----------\n\nSet a well-defined regular expression that matches your requirements in the `pattern` field of string parameters. This ensures that only strings matching the set pattern get passed to your API.\n\nFor example, the API below only accepts UUIDs that are compliant with [RFC 4122](https://www.ietf.org/rfc/rfc4122.txt):\n\n    {\n        \"post\": {\n            \"description\": \"Creates a new pet in the store\",\n            \"operationId\": \"addPet\",\n            \"requestBody\": {\n                \"description\": \"Pet to add to the store\",\n                \"required\": true,\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"$ref\": \"#/components/schemas/NewPet\"\n                        }\n                    }\n                }\n            }\n        },\n        // ...\n        \"NewPet\": {\n            \"type\": \"object\",\n            \"description\": \"JSON defining a Pet object\",\n            \"additionalProperties\": false,\n            \"required\": [\n                \"name\"\n            ],\n            \"properties\": {\n                \"name\": {\n                    \"type\": \"string\",\n                    \"maxLength\": 10,\n                    \"pattern\": \"^[A-Za-z0-9]{3,10}$\"\n                }       \n            }\n        }\n    }\n\nWe recommend that you carefully think what kind of regular expression best matches your needs. Do not simply blindly copy the pattern from the code example.\n\nRemember to include the anchors `^` and `$` in your regular expression, otherwise the overall length of the pattern could be considered infinite. If you include the anchors in the regular expression _and_ the pattern _only_ has fixed or constant quantifiers (like `{10,64}`, for example), you do not have to define the property `maxLength` separately for the object, as the length is fully constrained by the pattern. However, if the regular expression does not include the anchors _or_ its quantifiers are not fixed (like in `^a.*b$`), it can be considered to be just a part of a longer string and the property `maxLength` is required to constrain the length.\n\nFor more information on regular expressions, see the following:\n\n*   Language-agnostic information on regular expressions at [Base Definitions page on regular expressions](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap09.html)\n*   [OWASP Validation Regex Repository](https://owasp.org/www-community/OWASP_Validation_Regex_Repository)\n*   [RegExr](https://regexr.com/), an online tool for building and testing regular expressions\n\nFor examples on some of the common regulars expressions, see the [full article](https://docs.42crunch.com/latest/content/oasv3/datavalidation/schema/v3-schema-request-string-pattern.htm)."
+                                "text": "Description"
                             },
                             "properties": {
-                                "tags": [
-                                    "security"
-                                ],
-                                "criticality": "Critical"
-                            }
-                        },
-                        {
-                            "id": "0fbea1d6-b426-5d37-8ab6-eeb30054dadf",
-                            "name": "v3 global securityrequirement emptyarray",
-                            "helpUri": "https://docs.42crunch.com/latest/content/oasv3/datavalidation/schema/v3-global-securityrequirement-emptyarray.htm",
-                            "shortDescription": {
-                                "text": "The security field contains an empty array"
-                            },
-                            "help": {
-                                "text": "Description\n-----------\n\nA string schema does not define any pattern for the accepted strings. This means that it does not limit the values that get passed to the API.\n\nFor more details, see the [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#schemaObject).\n\nExample\n-------\n\nThe following is an example of how this type of risk could look in your API definition. Because no pattern is defined, the API accepts a string of any size and value:\n\n    {\n        \"post\": {\n            \"description\": \"Creates a new pet in the store\",\n            \"operationId\": \"addPet\",\n            \"requestBody\": {\n                \"description\": \"Pet to add to the store\",\n                \"required\": true,\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"$ref\": \"#/components/schemas/NewPet\"\n                        }\n                    }\n                }\n            }\n        },\n        // ...\n        \"NewPet\": {\n            \"type\": \"object\",\n            \"description\": \"JSON defining a Pet object\",\n            \"additionalProperties\": false,\n            \"required\": [\n                \"name\"\n            ],\n            \"properties\": {\n                \"name\": {\n                    \"type\": \"string\"\n                }       \n            }\n        }\n    }\n\nPossible exploit scenario\n-------------------------\n\nIf you do not define a pattern for strings, any string is accepted as the input. This could open your backend server to various attacks, such as SQL injection.\n\nRemediation\n-----------\n\nSet a well-defined regular expression that matches your requirements in the `pattern` field of string parameters. This ensures that only strings matching the set pattern get passed to your API.\n\nFor example, the API below only accepts UUIDs that are compliant with [RFC 4122](https://www.ietf.org/rfc/rfc4122.txt):\n\n    {\n        \"post\": {\n            \"description\": \"Creates a new pet in the store\",\n            \"operationId\": \"addPet\",\n            \"requestBody\": {\n                \"description\": \"Pet to add to the store\",\n                \"required\": true,\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"$ref\": \"#/components/schemas/NewPet\"\n                        }\n                    }\n                }\n            }\n        },\n        // ...\n        \"NewPet\": {\n            \"type\": \"object\",\n            \"description\": \"JSON defining a Pet object\",\n            \"additionalProperties\": false,\n            \"required\": [\n                \"name\"\n            ],\n            \"properties\": {\n                \"name\": {\n                    \"type\": \"string\",\n                    \"maxLength\": 10,\n                    \"pattern\": \"^[A-Za-z0-9]{3,10}$\"\n                }       \n            }\n        }\n    }\n\nWe recommend that you carefully think what kind of regular expression best matches your needs. Do not simply blindly copy the pattern from the code example.\n\nRemember to include the anchors `^` and `$` in your regular expression, otherwise the overall length of the pattern could be considered infinite. If you include the anchors in the regular expression _and_ the pattern _only_ has fixed or constant quantifiers (like `{10,64}`, for example), you do not have to define the property `maxLength` separately for the object, as the length is fully constrained by the pattern. However, if the regular expression does not include the anchors _or_ its quantifiers are not fixed (like in `^a.*b$`), it can be considered to be just a part of a longer string and the property `maxLength` is required to constrain the length.\n\nFor more information on regular expressions, see the following:\n\n*   Language-agnostic information on regular expressions at [Base Definitions page on regular expressions](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap09.html)\n*   [OWASP Validation Regex Repository](https://owasp.org/www-community/OWASP_Validation_Regex_Repository)\n*   [RegExr](https://regexr.com/), an online tool for building and testing regular expressions\n\nFor examples on some of the common regulars expressions, see the [full article](https://docs.42crunch.com/latest/content/oasv3/datavalidation/schema/v3-schema-request-string-pattern.htm)."
-                            },
-                            "properties": {
-                                "tags": [
-                                    "security"
-                                ],
-                                "criticality": "High"
-                            }
-                        },
-                        {
-                            "id": "4c75aeb0-5f48-5b50-9727-9aefda90741c",
-                            "name": "v3 operation security",
-                            "helpUri": "https://docs.42crunch.com/latest/content/oasv3/datavalidation/schema/v3-operation-security.htm",
-                            "shortDescription": {
-                                "text": "Security field of the operation is not defined"
-                            },
-                            "help": {
-                                "text": "Description\n-----------\n\nA string schema does not define any pattern for the accepted strings. This means that it does not limit the values that get passed to the API.\n\nFor more details, see the [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#schemaObject).\n\nExample\n-------\n\nThe following is an example of how this type of risk could look in your API definition. Because no pattern is defined, the API accepts a string of any size and value:\n\n    {\n        \"post\": {\n            \"description\": \"Creates a new pet in the store\",\n            \"operationId\": \"addPet\",\n            \"requestBody\": {\n                \"description\": \"Pet to add to the store\",\n                \"required\": true,\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"$ref\": \"#/components/schemas/NewPet\"\n                        }\n                    }\n                }\n            }\n        },\n        // ...\n        \"NewPet\": {\n            \"type\": \"object\",\n            \"description\": \"JSON defining a Pet object\",\n            \"additionalProperties\": false,\n            \"required\": [\n                \"name\"\n            ],\n            \"properties\": {\n                \"name\": {\n                    \"type\": \"string\"\n                }       \n            }\n        }\n    }\n\nPossible exploit scenario\n-------------------------\n\nIf you do not define a pattern for strings, any string is accepted as the input. This could open your backend server to various attacks, such as SQL injection.\n\nRemediation\n-----------\n\nSet a well-defined regular expression that matches your requirements in the `pattern` field of string parameters. This ensures that only strings matching the set pattern get passed to your API.\n\nFor example, the API below only accepts UUIDs that are compliant with [RFC 4122](https://www.ietf.org/rfc/rfc4122.txt):\n\n    {\n        \"post\": {\n            \"description\": \"Creates a new pet in the store\",\n            \"operationId\": \"addPet\",\n            \"requestBody\": {\n                \"description\": \"Pet to add to the store\",\n                \"required\": true,\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"$ref\": \"#/components/schemas/NewPet\"\n                        }\n                    }\n                }\n            }\n        },\n        // ...\n        \"NewPet\": {\n            \"type\": \"object\",\n            \"description\": \"JSON defining a Pet object\",\n            \"additionalProperties\": false,\n            \"required\": [\n                \"name\"\n            ],\n            \"properties\": {\n                \"name\": {\n                    \"type\": \"string\",\n                    \"maxLength\": 10,\n                    \"pattern\": \"^[A-Za-z0-9]{3,10}$\"\n                }       \n            }\n        }\n    }\n\nWe recommend that you carefully think what kind of regular expression best matches your needs. Do not simply blindly copy the pattern from the code example.\n\nRemember to include the anchors `^` and `$` in your regular expression, otherwise the overall length of the pattern could be considered infinite. If you include the anchors in the regular expression _and_ the pattern _only_ has fixed or constant quantifiers (like `{10,64}`, for example), you do not have to define the property `maxLength` separately for the object, as the length is fully constrained by the pattern. However, if the regular expression does not include the anchors _or_ its quantifiers are not fixed (like in `^a.*b$`), it can be considered to be just a part of a longer string and the property `maxLength` is required to constrain the length.\n\nFor more information on regular expressions, see the following:\n\n*   Language-agnostic information on regular expressions at [Base Definitions page on regular expressions](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap09.html)\n*   [OWASP Validation Regex Repository](https://owasp.org/www-community/OWASP_Validation_Regex_Repository)\n*   [RegExr](https://regexr.com/), an online tool for building and testing regular expressions\n\nFor examples on some of the common regulars expressions, see the [full article](https://docs.42crunch.com/latest/content/oasv3/datavalidation/schema/v3-schema-request-string-pattern.htm)."
-                            },
-                            "properties": {
-                                "tags": [
-                                    "security"
-                                ],
-                                "criticality": "Critical"
+                                "category": "Other",
+                                "security-severity": "6"
                             }
                         }
                     ]
                 }
             },
-            "results": [
-                {
-                    "ruleId": "3f292041e51d22005ce48f39df3585d44ce1b0ad",
-                    "ruleIndex": 0,
-                    "level": "Warning",
-                    "message": {
-                        "text": "**Scope:** Global\n**Description:** API accepts HTTP requests in the clear\n\n"
-                    },
-                    "locations": [
-                        {
-                            "physicalLocation": {
-                                "artifactLocation": {
-                                    "uri": "file:///./examples/api-with-examples.json",
-                                    "index": 0
-                                },
-                                "region": {
-                                    "startLine": 4,
-                                    "startColumn": 10,
-                                    "endColumn": 23
-                                }
-                            }
-                        }
-                    ]
-                },
-                {
-                    "ruleId": "3f292041e51d22005ce48f39df3585d44ce1b0ad",
-                    "ruleIndex": 1,
-                    "level": "Warning",
-                    "message": {
-                        "text": "**Scope:** Global\n**Description:** API accepts HTTP requests in the clear\n\n"
-                    },
-                    "locations": [
-                        {
-                            "physicalLocation": {
-                                "artifactLocation": {
-                                    "uri": "file:///./examples/api-with-examples.json",
-                                    "index": 0
-                                },
-                                "region": {
-                                    "startLine": 8,
-                                    "startColumn": 10,
-                                    "endColumn": 25
-                                }
-                            }
-                        }
-                    ]
-                },
-                {
-                    "ruleId": "3f292041e51d22005ce48f39df3585d44ce1b0ad",
-                    "ruleIndex": 2,
-                    "level": "Critical",
-                    "message": {
-                        "text": "**Scope:** Global\n**Description:** Global security field is not defined\n\n"
-                    },
-                    "locations": [
-                        {
-                            "physicalLocation": {
-                                "artifactLocation": {
-                                    "uri": "file:///./examples/api-with-examples.json",
-                                    "index": 0
-                                },
-                                "region": {
-                                    "startLine": 4,
-                                    "startColumn": 10,
-                                    "endColumn": 23
-                                }
-                            }
-                        }
-                    ]
-                },
-                {
-                    "ruleId": "3f292041e51d22005ce48f39df3585d44ce1b0ad",
-                    "ruleIndex": 3,
-                    "level": "Critical",
-                    "message": {
-                        "text": "**Scope:** Global\n**Description:** Global security field is not defined\n\n"
-                    },
-                    "locations": [
-                        {
-                            "physicalLocation": {
-                                "artifactLocation": {
-                                    "uri": "file:///./examples/api-with-examples.json",
-                                    "index": 0
-                                },
-                                "region": {
-                                    "startLine": 8,
-                                    "startColumn": 10,
-                                    "endColumn": 25
-                                }
-                            }
-                        }
-                    ]
-                }
-            ]
+            "results": []
         }
     ]
 }
