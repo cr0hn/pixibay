@@ -10,7 +10,7 @@
                     "informationUri": "https://42crunch.com/",
                     "rules": [
                         {
-                            "id": "v3 global securityscheme apikey inheader",
+                            "id": "v3-global-securityscheme-apikey-inheader",
                             "shortDescription": {
                                 "text": "Transporting API keys in a header over network allowed"
                             },
@@ -24,7 +24,7 @@
                             }
                         },
                         {
-                            "id": "v3 operation securityrequirement apikey inheader",
+                            "id": "v3-operation-securityrequirement-apikey-inheader",
                             "shortDescription": {
                                 "text": "Operation accepts API keys transported in a header over network"
                             },
@@ -40,7 +40,54 @@
                     ]
                 }
             },
-            "results": []
+            "results": [
+                {
+                    "level": "note",
+                    "ruleId": "v3-global-securityscheme-apikey-inheader",
+                    "message": {
+                        "text": "**Scope:** Endpoint\n**Description:** Transporting API keys in a header over network allowed\n\n"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///examples/pixi.json",
+                                    "index": 0
+                                },
+                                "region": {
+                                    "startLine": 1171,
+                                    "startColumn": 9,
+                                    "endColumn": 13
+                                }
+                            }
+                        }
+                    ],
+                    "ruleIndex": 0
+                },
+                {
+                    "level": "warning",
+                    "ruleId": "v3-operation-securityrequirement-apikey-inheader",
+                    "message": {
+                        "text": "**Scope:** Endpoint\n**Description:** Operation accepts API keys transported in a header over network\n\n"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///examples/pixi.json",
+                                    "index": 0
+                                },
+                                "region": {
+                                    "startLine": 1171,
+                                    "startColumn": 9,
+                                    "endColumn": 13
+                                }
+                            }
+                        }
+                    ],
+                    "ruleIndex": 1
+                }
+            ]
         }
     ]
 }
