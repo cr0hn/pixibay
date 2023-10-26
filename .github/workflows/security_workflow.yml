@@ -1,4 +1,4 @@
-name: Security Audit
+name: 42Crunch API Security Audit
 
 on:
   workflow_dispatch:
@@ -18,11 +18,3 @@ jobs:
         uses: 42crunch/api-security-audit-action-freemium@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-
-#      - name: Upload SARIF file
-#        uses: github/codeql-action/upload-sarif@v2
-#        with:
-#           Path to SARIF file relative to the root of the repository
-#          sarif_file: audit-report.json.report
-#           Optional category for the results
-#           Used to differentiate multiple results for one commit
