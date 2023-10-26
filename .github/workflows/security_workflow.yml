@@ -5,6 +5,7 @@ on:
 
 jobs:
   run_42c_audit:
+    name: 42Crunch API Security Audit
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
