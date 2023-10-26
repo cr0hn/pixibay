@@ -44,7 +44,6 @@
                 {
                     "level": "note",
                     "ruleId": "v3-global-securityscheme-apikey-inheader-examples-pixi-json",
-                    "rule": "v3-global-securityscheme-apikey-inheader",
                     "message": {
                         "text": "# Transporting API keys in a header over network allowed\n\n"
                     },
@@ -68,7 +67,6 @@
                 {
                     "level": "warning",
                     "ruleId": "v3-operation-securityrequirement-apikey-inheader-examples-pixi-json",
-                    "rule": "v3-operation-securityrequirement-apikey-inheader",
                     "message": {
                         "text": "# Operation accepts API keys transported in a header over network\n\n"
                     },
