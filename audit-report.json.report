@@ -1,93 +1,585 @@
 {
-    "version": "2.1.0",
-    "$schema": "http://json.schemastore.org/sarif-2.1.0.json",
-    "runs": [
-        {
-            "tool": {
-                "driver": {
-                    "name": "42Crunch REST API Static Security Testing",
-                    "version": "1.0.0",
-                    "informationUri": "https://42crunch.com/",
-                    "rules": [
-                        {
-                            "id": "v3-global-securityscheme-apikey-inheader",
-                            "shortDescription": {
-                                "text": "Transporting API keys in a header over network allowed"
-                            },
-                            "helpUri": "https://docs.42crunch.com/latest/content/oasv3/datavalidation/schema/v3-global-securityscheme-apikey-inheader.htm",
-                            "help": {
-                                "text": "One or more global security schemes in your API allows transporting API keys in a header over the network. The credentials are sent over the network on each API call, over and over again, and are exposed to attack attempts to retrieve them.  "
-                            },
-                            "properties": {
-                                "category": "Other",
-                                "security-severity": "2"
-                            }
-                        },
-                        {
-                            "id": "v3-operation-securityrequirement-apikey-inheader",
-                            "shortDescription": {
-                                "text": "Operation accepts API keys transported in a header over network"
-                            },
-                            "helpUri": "https://docs.42crunch.com/latest/content/oasv3/datavalidation/schema/v3-operation-securityrequirement-apikey-inheader.htm",
-                            "help": {
-                                "text": "The API operation accepts API keys transported in a header over the network instead of the more secure tokens. The credentials are sent over the network on each API call, over and over again, and are exposed to attack attempts to retrieve them.  "
-                            },
-                            "properties": {
-                                "category": "Other",
-                                "security-severity": "6"
-                            }
-                        }
-                    ]
-                }
-            },
-            "results": [
-                {
-                    "level": "note",
-                    "ruleId": "v3-global-securityscheme-apikey-inheader",
-                    "message": {
-                        "text": "# Transporting API keys in a header over network allowed\n\n"
+    "index": [
+        "/components/schemas/ConfirmationMessage/properties/message",
+        "/components/schemas/PicturesList/items/properties/description",
+        "/components/schemas/PicturesList/items/properties/filename",
+        "/components/schemas/PicturesList/items/properties/image_url",
+        "/components/schemas/PicturesList/items/properties/name",
+        "/components/schemas/PicturesList/items/properties/title",
+        "/components/securitySchemes/access-token",
+        "/paths/~1admin~1all_users/get/parameters/0",
+        "/paths/~1admin~1all_users/get/security/0/access-token",
+        "/paths/~1admin~1users~1search/get/parameters/0",
+        "/paths/~1admin~1users~1search/get/parameters/1",
+        "/paths/~1admin~1users~1search/get/security/0/access-token",
+        "/paths/~1admin~1user~1{userid}/delete/responses",
+        "/paths/~1admin~1user~1{userid}/delete/responses/200/content/application~1json/schema/properties/message",
+        "/paths/~1admin~1user~1{userid}/delete/security/0/access-token",
+        "/paths/~1picture~1upload/post/requestBody/content/application~1json",
+        "/paths/~1picture~1upload/post/security/0/access-token",
+        "/paths/~1picture~1{id}/delete/responses",
+        "/paths/~1picture~1{id}/delete/responses/200/content/application~1json/schema/properties/message",
+        "/paths/~1picture~1{id}/delete/security/0/access-token",
+        "/paths/~1user~1edit_info/put/parameters/0",
+        "/paths/~1user~1edit_info/put/requestBody/content/application~1json",
+        "/paths/~1user~1edit_info/put/security/0/access-token",
+        "/paths/~1user~1info/get/security/0/access-token",
+        "/paths/~1user~1login/post/requestBody/content/application~1json",
+        "/paths/~1user~1login/post/requestBody/content/application~1json/schema/properties/pass",
+        "/paths/~1user~1login/post/requestBody/content/application~1json/schema/properties/user",
+        "/paths/~1user~1pictures/get/security/0/access-token"
+    ],
+    "assessmentVersion": "3.1.6",
+    "assessmentReportVersion": "1.0.1",
+    "commit": "8ea4f95d3e1e3d7c2597ebdf1bb327df42634f73-E",
+    "oasVersion": "3.0.1",
+    "apiVersion": "4.2",
+    "fileId": "",
+    "apiId": "",
+    "openapiState": "valid",
+    "score": 78.81,
+    "valid": true,
+    "criticality": 3,
+    "issueCounter": 32,
+    "warnings": {
+        "issues": {
+            "v3-warning-sample-undefined": {
+                "description": "No sample values or examples were provided for API Conformance Scan",
+                "totalIssues": 7,
+                "issues": [
+                    {
+                        "pointer": 15,
+                        "specificDescription": "No sample defined in the 'Request Body' object",
+                        "fingerprint": "3a45080b1301c997fc645159fa7d1a3e2a89bdd1"
                     },
-                    "locations": [
-                        {
-                            "physicalLocation": {
-                                "artifactLocation": {
-                                    "uri": "openapi.json",
-                                    "index": 1
-                                },
-                                "region": {
-                                    "startLine": 1171,
-                                    "startColumn": 9,
-                                    "endColumn": 13
-                                }
-                            }
-                        }
-                    ],
-                    "ruleIndex": 0
-                },
-                {
-                    "level": "warning",
-                    "ruleId": "v3-operation-securityrequirement-apikey-inheader",
-                    "message": {
-                        "text": "# Operation accepts API keys transported in a header over network\n\n"
+                    {
+                        "pointer": 9,
+                        "specificDescription": "No sample defined in the 'Parameter' object",
+                        "fingerprint": "de0867266a82bc5dab85a69be7cd9fc723655404"
                     },
-                    "locations": [
-                        {
-                            "physicalLocation": {
-                                "artifactLocation": {
-                                    "uri": "openapi.json",
-                                    "index": 1
-                                },
-                                "region": {
-                                    "startLine": 1171,
-                                    "startColumn": 9,
-                                    "endColumn": 13
-                                }
-                            }
-                        }
-                    ],
-                    "ruleIndex": 1
-                }
-            ]
+                    {
+                        "pointer": 10,
+                        "specificDescription": "No sample defined in the 'Parameter' object",
+                        "fingerprint": "40958a4827c84595d9c483a8e6ef52282bbe66e8"
+                    },
+                    {
+                        "pointer": 7,
+                        "specificDescription": "No sample defined in the 'Parameter' object",
+                        "fingerprint": "cfb996a3cde68fe0b6043b3b5e5581419cd22c7e"
+                    },
+                    {
+                        "pointer": 24,
+                        "specificDescription": "No sample defined in the 'Request Body' object",
+                        "fingerprint": "4890fc552904a9e8c8c09f500249918c2cd3124f"
+                    },
+                    {
+                        "pointer": 20,
+                        "specificDescription": "No sample defined in the 'Parameter' object",
+                        "fingerprint": "d300914718f76b4640093f59ee1365a763845029"
+                    },
+                    {
+                        "pointer": 21,
+                        "specificDescription": "No sample defined in the 'Request Body' object",
+                        "fingerprint": "45a8c5167ff9096b47b971f281815b7e1f3eaafe"
+                    }
+                ],
+                "tooManyError": false
+            }
         }
-    ]
+    },
+    "minimalReport": false,
+    "maxEntriesPerIssue": 30,
+    "maxImpactedPerEntry": 30,
+    "security": {
+        "issueCounter": 9,
+        "score": 18,
+        "criticality": 3,
+        "issues": {
+            "v3-global-securityscheme-apikey-inheader": {
+                "description": "Transporting API keys in a header over network allowed",
+                "issues": [
+                    {
+                        "score": 0,
+                        "pointer": 6,
+                        "tooManyImpacted": false,
+                        "criticality": 1,
+                        "request": true,
+                        "fingerprint": "b6985a73fd06af7a881b72a43656e50eb021e585"
+                    }
+                ],
+                "issueCounter": 1,
+                "score": 0,
+                "criticality": 1,
+                "tooManyError": false
+            },
+            "v3-operation-securityrequirement-apikey-inheader": {
+                "description": "Operation accepts API keys transported in a header over network",
+                "issues": [
+                    {
+                        "score": -1.5,
+                        "pointer": 8,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "request": true,
+                        "fingerprint": "49a38cf506cc02a98ed8f80b93d658321bfe8b9a"
+                    },
+                    {
+                        "score": -1.5,
+                        "pointer": 14,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "request": true,
+                        "fingerprint": "0d1c469a05ba68747289fe7a297ad024f5399087"
+                    },
+                    {
+                        "score": -1.5,
+                        "pointer": 11,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "request": true,
+                        "fingerprint": "607cb0313516d214763f75f218f62bf16a047b60"
+                    },
+                    {
+                        "score": -1.5,
+                        "pointer": 16,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "request": true,
+                        "fingerprint": "dbddf475a347f350e3c592e91bd8d0e0b9fb3d4f"
+                    },
+                    {
+                        "score": -1.5,
+                        "pointer": 19,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "request": true,
+                        "fingerprint": "d5e23f16f6cd6d7f68ffa7173db99a7e1c623b8c"
+                    },
+                    {
+                        "score": -1.5,
+                        "pointer": 22,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "request": true,
+                        "fingerprint": "5d554a2c5799b5e5489736c94b31865c3554dbf0"
+                    },
+                    {
+                        "score": -1.5,
+                        "pointer": 23,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "request": true,
+                        "fingerprint": "73380758a92d35a47fe5c793c08deaf6000f5802"
+                    },
+                    {
+                        "score": -1.5,
+                        "pointer": 27,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "request": true,
+                        "fingerprint": "a0e3daac109375656771d29161a875c52f45bf05"
+                    }
+                ],
+                "issueCounter": 8,
+                "score": -12,
+                "criticality": 3,
+                "tooManyError": false
+            }
+        },
+        "subgroupIssueCounter": {
+            "authentication": {
+                "none": 0,
+                "info": 1,
+                "low": 0,
+                "medium": 8,
+                "high": 0,
+                "critical": 0
+            },
+            "authorization": {
+                "none": 0,
+                "info": 0,
+                "low": 0,
+                "medium": 0,
+                "high": 0,
+                "critical": 0
+            },
+            "transport": {
+                "none": 0,
+                "info": 0,
+                "low": 0,
+                "medium": 0,
+                "high": 0,
+                "critical": 0
+            }
+        }
+    },
+    "data": {
+        "issueCounter": 23,
+        "score": 60.81,
+        "criticality": 3,
+        "issues": {
+            "v3-response-401": {
+                "description": "If operation has security defined, the 401 response should be defined",
+                "issues": [
+                    {
+                        "score": -0.07,
+                        "pointer": 12,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "response": true,
+                        "fingerprint": "e4a73f29f8fdf2df697202bbacb8f42c5935d380"
+                    },
+                    {
+                        "score": -0.07,
+                        "pointer": 17,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "response": true,
+                        "fingerprint": "fedd8dcb66ce1cd7364ea895125f6e8561eed81b"
+                    }
+                ],
+                "issueCounter": 2,
+                "score": -0.14,
+                "criticality": 3,
+                "tooManyError": false
+            },
+            "v3-response-404": {
+                "description": "404 response should be defined for all GET, PUT, HEAD, and DELETE operations",
+                "issues": [
+                    {
+                        "score": -0.07,
+                        "pointer": 12,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "response": true,
+                        "fingerprint": "f2531a74a61d3348e6bdc3d595d463795d9bd934"
+                    },
+                    {
+                        "score": -0.07,
+                        "pointer": 17,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "response": true,
+                        "fingerprint": "bb890c6be653c335f6bf37dd739a6d35772c2888"
+                    }
+                ],
+                "issueCounter": 2,
+                "score": -0.14,
+                "criticality": 3,
+                "tooManyError": false
+            },
+            "v3-response-406": {
+                "description": "406 response should be defined for all GET, POST, PUT, PATCH, and DELETE operations",
+                "issues": [
+                    {
+                        "score": -0.07,
+                        "pointer": 12,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "response": true,
+                        "fingerprint": "11fbbd24704432a854c03344ef74609c3d701909"
+                    },
+                    {
+                        "score": -0.07,
+                        "pointer": 17,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "response": true,
+                        "fingerprint": "d705fd6e9a17912993ac38cb8ceca513e24d929d"
+                    }
+                ],
+                "issueCounter": 2,
+                "score": -0.14,
+                "criticality": 3,
+                "tooManyError": false
+            },
+            "v3-response-429": {
+                "description": "429 response should be defined for all operations",
+                "issues": [
+                    {
+                        "score": -0.07,
+                        "pointer": 12,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "response": true,
+                        "fingerprint": "fd25fa8843cc18e401c3358f2ad1fd69e6771f20"
+                    },
+                    {
+                        "score": -0.07,
+                        "pointer": 17,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "response": true,
+                        "fingerprint": "cb6a6e98659bc4c7be124695b19a874152b63d02"
+                    }
+                ],
+                "issueCounter": 2,
+                "score": -0.14,
+                "criticality": 3,
+                "tooManyError": false
+            },
+            "v3-response-default-undefined": {
+                "description": "No default response defined for the operation",
+                "issues": [
+                    {
+                        "score": -0.07,
+                        "pointer": 12,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "response": true,
+                        "fingerprint": "a983eca0b1914f875328290046295169dfebe292"
+                    },
+                    {
+                        "score": -0.07,
+                        "pointer": 17,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "response": true,
+                        "fingerprint": "fe725c45d5e59443ab3a1b1eaca159e08e4c2767"
+                    }
+                ],
+                "issueCounter": 2,
+                "score": -0.14,
+                "criticality": 3,
+                "tooManyError": false
+            },
+            "v3-schema-request-string-maxlength": {
+                "description": "String schema in a request has no maximum length defined",
+                "issues": [
+                    {
+                        "score": -1.12,
+                        "pointer": 25,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "request": true,
+                        "fingerprint": "887bf86e70f0ff78c06ded869f76d5846e58ca6e"
+                    },
+                    {
+                        "score": -1.12,
+                        "pointer": 26,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "request": true,
+                        "fingerprint": "697c3e78a440923013cae9b88843de2873d386ba"
+                    }
+                ],
+                "issueCounter": 2,
+                "score": -2.24,
+                "criticality": 3,
+                "tooManyError": false
+            },
+            "v3-schema-request-string-pattern": {
+                "description": "String schema in a request has no pattern defined",
+                "issues": [
+                    {
+                        "score": -1.68,
+                        "pointer": 25,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "request": true,
+                        "fingerprint": "6165e2d63edd65d7f98f8abe51881ac57873e196"
+                    },
+                    {
+                        "score": -1.68,
+                        "pointer": 26,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "request": true,
+                        "fingerprint": "2579a1861507bcb500aa9a57a7176b95b28e6cf0"
+                    }
+                ],
+                "issueCounter": 2,
+                "score": -3.36,
+                "criticality": 3,
+                "tooManyError": false
+            },
+            "v3-schema-response-string-maxlength": {
+                "description": "String schema in a response has no maximum length defined",
+                "issues": [
+                    {
+                        "score": -0.39,
+                        "pointer": 13,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "response": true,
+                        "fingerprint": "4b305dbafc9c8ccf6eee01f4d8e9172455d4cebc"
+                    }
+                ],
+                "issueCounter": 1,
+                "score": -0.39,
+                "criticality": 3,
+                "tooManyError": false
+            },
+            "v3-schema-response-string-pattern": {
+                "description": "String schema in a response has no pattern defined",
+                "issues": [
+                    {
+                        "score": -0.59,
+                        "pointer": 13,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "response": true,
+                        "fingerprint": "042b1baff0edce0b24d6700d8a48d77083a1c726"
+                    },
+                    {
+                        "score": -0.59,
+                        "pointer": 18,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "response": true,
+                        "fingerprint": "e6179f89d365584794b199a1c16e15e75f7fdb35"
+                    },
+                    {
+                        "score": -0.29,
+                        "pointer": 0,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "response": true,
+                        "fingerprint": "9159358fb63788df9a9886704192f932ccca4c03"
+                    },
+                    {
+                        "score": -0.21,
+                        "pointer": 3,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "response": true,
+                        "fingerprint": "f27c0b87eaab3adc74ca2efc14cb8ddf9f10b074"
+                    },
+                    {
+                        "score": -0.21,
+                        "pointer": 2,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "response": true,
+                        "fingerprint": "01ad9c6aa58e7537bfdea51b1bd8e434518fc6cc"
+                    },
+                    {
+                        "score": -0.21,
+                        "pointer": 1,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "response": true,
+                        "fingerprint": "5b6b23a754d35a1139ab29495d6d6bef48d1a24f"
+                    },
+                    {
+                        "score": -0.21,
+                        "pointer": 5,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "response": true,
+                        "fingerprint": "8d63ee2cafe66c3a7d3b3f6641ac1c3eff3f6739"
+                    },
+                    {
+                        "score": -0.21,
+                        "pointer": 4,
+                        "tooManyImpacted": false,
+                        "criticality": 3,
+                        "response": true,
+                        "fingerprint": "6c80ca8067e3876e94d0f64ab937fbd0d5d7d48d"
+                    }
+                ],
+                "issueCounter": 8,
+                "score": -2.5,
+                "criticality": 3,
+                "tooManyError": false
+            }
+        },
+        "subgroupIssueCounter": {
+            "parameters": {
+                "none": 0,
+                "info": 0,
+                "low": 0,
+                "medium": 0,
+                "high": 0,
+                "critical": 0
+            },
+            "responseHeader": {
+                "none": 0,
+                "info": 0,
+                "low": 0,
+                "medium": 0,
+                "high": 0,
+                "critical": 0
+            },
+            "responseDefinition": {
+                "none": 0,
+                "info": 0,
+                "low": 0,
+                "medium": 10,
+                "high": 0,
+                "critical": 0
+            },
+            "schema": {
+                "none": 0,
+                "info": 0,
+                "low": 0,
+                "medium": 13,
+                "high": 0,
+                "critical": 0
+            },
+            "paths": {
+                "none": 0,
+                "info": 0,
+                "low": 0,
+                "medium": 0,
+                "high": 0,
+                "critical": 0
+            }
+        }
+    },
+    "issuesKey": [
+        "v3-response-429",
+        "v3-response-406",
+        "v3-schema-response-string-pattern",
+        "v3-warning-sample-undefined",
+        "v3-operation-securityrequirement-apikey-inheader",
+        "v3-global-securityscheme-apikey-inheader",
+        "v3-schema-response-string-maxlength",
+        "v3-schema-request-string-pattern",
+        "v3-schema-request-string-maxlength",
+        "v3-response-401",
+        "v3-response-default-undefined",
+        "v3-response-404"
+    ],
+    "summary": {
+        "oasVersion": "3.0.1",
+        "apiVersion": "4.2",
+        "basepath": "",
+        "apiName": "Pixi App API",
+        "description": "Pixi Photo Sharing API",
+        "endpoints": [
+            "https://photo-demo.westeurope.cloudapp.azure.com/version1/api"
+        ],
+        "pathCounter": 1,
+        "operationCounter": 10,
+        "parameterCounter": 6,
+        "requestBodyCounter": 4,
+        "schemesCounter": {
+            "https": 10
+        },
+        "requestContentType": {
+            "application/json": 4
+        },
+        "responseContentType": {
+            "application/json": 28
+        },
+        "securitySchemes": {
+            "access-token": {
+                "counterInsecure": 0,
+                "counterSecure": 8,
+                "type": "apiKey",
+                "apiKeyIn": "header",
+                "apiKeyName": "x-access-token"
+            }
+        },
+        "componentsSchemasCounter": 8,
+        "componentsResponsesCounter": 0,
+        "componentsParametersCounter": 0,
+        "componentsExamplesCounter": 0,
+        "componentsRequestBodiesCounter": 0,
+        "componentsHeadersCounter": 0,
+        "componentsSecuritySchemesCounter": 1,
+        "componentsLinksCounter": 0,
+        "componentsCallbacksCounter": 0
+    }
 }
