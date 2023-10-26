@@ -14,12 +14,9 @@
                             "shortDescription": {
                                 "text": "Transporting API keys in a header over network allowed"
                             },
-                            "fullDescription": {
-                                "text": " One or more global security schemes in your API allows transporting API keys\nin a header over the network. The credentials are sent over the network on\neach API call, over and over again, and are exposed to attack attempts to\nretrieve them.\n\nThis is a potential risk, because the definition is in security schemes.\nHowever, it easily turns into an actual risk when the unsafe method is used in\na security requirement.\n\nFor more details, see the [OpenAPI\nSpecification](https://github.com/OAI/OpenAPI-\nSpecification/blob/master/versions/3.0.2.md#security-scheme-object)."
-                            },
                             "helpUri": "https://docs.42crunch.com/latest/content/oasv3/datavalidation/schema/v3-global-securityscheme-apikey-inheader.htm",
                             "help": {
-                                "text": "Description"
+                                "text": "One or more global security schemes in your API allows transporting API keys\nin a header over the network. The credentials are sent over the network on\neach API call, over and over again, and are exposed to attack attempts to\nretrieve them.\n\n"
                             },
                             "properties": {
                                 "category": "Other",
@@ -31,12 +28,9 @@
                             "shortDescription": {
                                 "text": "Operation accepts API keys transported in a header over network"
                             },
-                            "fullDescription": {
-                                "text": " The API operation accepts API keys transported in a header over the network\ninstead of the more secure tokens. The credentials are sent over the network\non each API call, over and over again, and are exposed to attack attempts to\nretrieve them.\n\nFor more details, see the [OpenAPI\nSpecification](https://github.com/OAI/OpenAPI-\nSpecification/blob/master/versions/3.0.2.md#operation-object)."
-                            },
                             "helpUri": "https://docs.42crunch.com/latest/content/oasv3/datavalidation/schema/v3-operation-securityrequirement-apikey-inheader.htm",
                             "help": {
-                                "text": "Description"
+                                "text": "The API operation accepts API keys transported in a header over the network\ninstead of the more secure tokens. The credentials are sent over the network\non each API call, over and over again, and are exposed to attack attempts to\nretrieve them.\n\n"
                             },
                             "properties": {
                                 "category": "Other",
