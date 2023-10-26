@@ -2,6 +2,9 @@ name: Security Audit
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   run_42c_audit:
